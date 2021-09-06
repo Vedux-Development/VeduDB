@@ -1,0 +1,22 @@
+{
+  "name": "vedudb",
+  "version": "0.0.1",
+  "description": "a lightweight JSON based database",
+  "main": "src/vedu.js",
+  "scripts": {
+    "start": "node src/vedu.js"
+  },
+  "author": "Ducksquaddd & bqini",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vedux-Development/VeduDB.git"
+  },
+  "keywords": [
+    "json"
+  ],
+  "bugs": {
+    "url": "https://github.com/Vedux-Development/VeduDB/issues"
+  },
+  "homepage": "https://github.com/Vedux-Development/VeduDB#readme"
+}
