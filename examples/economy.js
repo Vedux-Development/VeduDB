@@ -9,7 +9,4 @@ async function yer() {
   console.log(await db.fetch(`${username}_money`)); // Fetching our money
 }
 
-async function hee() {
-  await db.subtract(`CRWChampion_money`, 2938292);
-}
-hee();
+yer();

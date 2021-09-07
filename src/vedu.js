@@ -73,7 +73,7 @@ class Vedudb {
       return true;
     } catch (err) {
       console.error(err);
-      return true;
+      return false;
     }
   }
   /**
@@ -231,7 +231,7 @@ class Vedudb {
 
     // see if value exists
     let db = JSON.parse(
-      fs.readFileSync(resolve(process.cwd(), this.database), "utf-8")
+      fs.readFileSync(resolve(process.cwd(), this.database), "utf8")
     );
     if (Object.prototype.hasOwnProperty.call(db, key)) {
       // key exists
