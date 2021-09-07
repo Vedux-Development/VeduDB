@@ -13,10 +13,16 @@
     "url": "git+https://github.com/Vedux-Development/VeduDB.git"
   },
   "keywords": [
-    "json"
+    "json",
+    "database",
+    "db",
+    "VeduDB"
   ],
   "bugs": {
     "url": "https://github.com/Vedux-Development/VeduDB/issues"
   },
-  "homepage": "https://github.com/Vedux-Development/VeduDB#readme"
+  "homepage": "https://github.com/Vedux-Development/VeduDB#readme",
+  "dependencies": {
+    "write-file-atomic": "^3.0.3"
+  }
 }
