@@ -44,6 +44,10 @@ let db = new vedudb("database.json");
 })();
 ```
 
+# Discord
+
+Come join the [Discord](https://discord.gg/8SUmcBSk8u) If you would like help with this package!
+
 # license
 
 This package is open sourced under the [MIT License](https://github.com/Vedux-Development/VeduDB/blob/master/LICENSE).

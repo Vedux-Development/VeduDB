@@ -1,6 +1,6 @@
 {
   "name": "@vedux/vedudb",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "a lightweight JSON based database",
   "main": "src/vedu.js",
   "scripts": {
@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/Vedux-Development/VeduDB#readme",
   "dependencies": {
-    "@vedux/vedudb": "^1.0.1",
     "write-file-atomic": "^3.0.3"
   }
 }
