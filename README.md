@@ -2,6 +2,20 @@
 
 VeduDB is a lightweight and simple to use JSON based database (That doesnt corrupt)
 
+# Installing VeduDB
+
+npm:
+
+```
+npm i --save @vedux/vedudb
+```
+
+Yarn:
+
+```
+yarn add @vedux/vedudb
+```
+
 # How to use VeduDB
 
 ```js
