@@ -1,5 +1,5 @@
 {
-  "name": "vedudb",
+  "name": "@vedux/vedudb",
   "version": "0.0.1",
   "description": "a lightweight JSON based database",
   "main": "src/vedu.js",

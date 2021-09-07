@@ -1,6 +1,6 @@
 # VeduDB
 
-VeduDB is a lightweight and simple to use JSON based database
+VeduDB is a lightweight and simple to use JSON based database (That doesnt corrupt)
 
 # How to use VeduDB
 
@@ -29,3 +29,7 @@ let db = new vedudb("database.json");
   await db.subtract("money", 100250)
 })();
 ```
+
+# license
+
+This package is open sourced under the [MIT License](https://github.com/Vedux-Development/VeduDB/blob/master/LICENSE).

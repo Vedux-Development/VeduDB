@@ -2,6 +2,13 @@ const fs = require("fs");
 const { resolve } = require("path");
 var writeFileAtomic = require("write-file-atomic");
 
+/* //////////////////////////////////////////////////////////////////////////////// */
+/*                                                                                  */
+/*                                 Vedux Development                                */
+/*                       Maintained by, Ducksquaddd, and bqini                      */
+/*                                                                                  */
+/* //////////////////////////////////////////////////////////////////////////////// */
+
 class Vedudb {
   /**
    *
@@ -10,7 +17,7 @@ class Vedudb {
    * @param {string} database The name of the JSON db to be created or used
    * @returns {boolean} If the database was created/used or it failed
    * @example
-   * const vedudb = require('vedudb');
+   * const vedudb = require('@vedux/vedudb');
    * var database = new vedudb("database.json");
    *
    */
@@ -160,7 +167,6 @@ class Vedudb {
    *
    */
   async add(key, amount) {
-    // key types
     if (typeof key !== "string" || key == "") {
       throw new TypeError("Invalid key of element");
     }
