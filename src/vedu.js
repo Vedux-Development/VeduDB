@@ -9,7 +9,7 @@ var writeFileAtomic = require("write-file-atomic");
 /*                                                                                  */
 /* //////////////////////////////////////////////////////////////////////////////// */
 
-class Vedudb {
+class VeduDB {
   /**
    *
    * Create a new JSON database
@@ -174,13 +174,10 @@ class Vedudb {
     if (typeof amount !== "number") {
       throw new TypeError("Amount must be a integer/number!");
     }
-
-    // see if value exists
     let db = JSON.parse(
       fs.readFileSync(resolve(process.cwd(), this.database), "utf-8")
     );
     if (Object.prototype.hasOwnProperty.call(db, key)) {
-      // key exists
       let value = db[key];
       if (typeof value !== "number") {
         throw new Error("Key of existing element must be a number.");
@@ -204,6 +201,25 @@ class Vedudb {
 
   /**
    *
+   * Returns all the elements and their values of the JSON database.
+   *
+   * @returns {Object} The object of all the key-value pairs of the database.
+   * @example
+   * database.set("Ducky", "Pro gramer");
+   * database.set("bqini", "insane siege player");
+   *
+   * let all = database.all();
+   * console.log(all); // { "Ducky": "Pro gramer", "bqini": "insane siege player" }
+   *
+   */
+  async fetchAll() {
+    let data = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    data = JSON.parse(data);
+    return data;
+  }
+
+  /**
+   *
    * Performs mathematical operations on values of elements.
    *
    * @param {string} key The key of the element on which you would like to change
@@ -220,7 +236,6 @@ class Vedudb {
    *
    */
   async subtract(key, amount) {
-    // key types
     if (typeof key !== "string" || key == "") {
       throw new TypeError("Invalid key of element");
     }
@@ -229,12 +244,10 @@ class Vedudb {
       throw new TypeError("Amount must be a integer/number!");
     }
 
-    // see if value exists
     let db = JSON.parse(
       fs.readFileSync(resolve(process.cwd(), this.database), "utf8")
     );
     if (Object.prototype.hasOwnProperty.call(db, key)) {
-      // key exists
       let value = db[key];
       if (typeof value !== "number") {
         throw new Error("Key of existing element must be a number.");
@@ -255,6 +268,39 @@ class Vedudb {
       return false;
     }
   }
+
+  /**
+   *
+   * See if a particular element exists by using it's key.
+   *
+   * @param {string} key The key name to see if it exists.
+   *
+   * @returns {Boolean} True if it exists else false
+   *
+   * @example
+   * database.set("user", "bqini");
+   *
+   * let has = database.has("bqini");
+   * console.log(has); => returns true
+   *
+   * let has2 = database.has("ducksquaddd");
+   * console.log(has2); => returns false
+   */
+  async has(key) {
+    // too many tricks
+    if (typeof key !== "string" || key == "") {
+      throw new TypeError("Invalid key of element");
+    }
+
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+
+    if (Object.prototype.hasOwnProperty.call(db, key)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
-module.exports = Vedudb;
+module.exports = VeduDB;

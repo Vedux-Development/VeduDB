@@ -28,7 +28,10 @@ let db = new vedudb("database.json");
   await db.set("Developer2", "bqini");
 
   // Log whatever the value is to this key
-  console.log(await db.get("Developer1")); // => "Ducksquaddd
+  console.log(await db.get("Developer1")); // => "Ducksquaddd"
+
+  // I want to get all my stored data
+  console.log(await db.fetchAll())) // => { All the db content }
 
   // I dont like Develper 2
   console.log(await db.delete("Developer2")); // => true
@@ -51,3 +54,5 @@ Come join the [Discord](https://discord.gg/8SUmcBSk8u) If you would like help wi
 # license
 
 This package is open sourced under the [MIT License](https://github.com/Vedux-Development/VeduDB/blob/master/LICENSE).
+
+# FAQ
