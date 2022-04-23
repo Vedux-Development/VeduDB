@@ -28,13 +28,13 @@ let db = new vedudb("database.json");
   await db.set("Developer2", "bqini");
 
   // Log whatever the value is to this key
-  console.log(await db.get("Developer1")); // => "Ducksquaddd"
+  console.log(await db.fetch("Developer1")); // => "Ducksquaddd"
 
   // I want to get all my stored data
   console.log(await db.fetchAll())) // => { All the db content }
 
   // I dont like Develper 2
-  console.log(await db.delete("Developer2")); // => true
+  console.log(await db.remove("Developer2")); // => true
 
   // I robbed an old lady
   await db.set("money", 250);
