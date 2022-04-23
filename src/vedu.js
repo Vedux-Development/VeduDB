@@ -301,6 +301,87 @@ class VeduDB {
       return false;
     }
   }
+
+  /**
+   * @callback filterPredicate
+   * @param {any} entry
+   * @param {string} key
+   * @returns {boolean} If the predicate matched the parameters
+   */
+
+  /**
+   * Filter the database for any entries that meet the predicate condition
+   * @param {filterPredicate} predicate 
+   * @returns {any[]} Entries in the database that meet the condition specified in a callback function.
+   */
+  filter(predicate) {
+    let matches = [];
+
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+
+    for (const key in db) {
+      if (Object.prototype.hasOwnProperty.call(db, key)) {
+        if (predicate(db[key], key)) {
+          matches.push(db[key]);
+        }
+      }
+    }
+    
+    return matches;
+  }
+
+  /**
+   * Find the first entry that matches the predicate
+   * @param {filterPredicate} predicate 
+   * @returns {any} The first element that matches the predicate
+   */
+  find(predicate) {
+    return this.filter(predicate)[0];
+  }
+
+  /**
+   * Like find but returns the key instead of the value
+   * @param {filterPredicate} predicate 
+   * @returns {any} The key of the first value that matches the predicate
+   */
+  findKey(predicate) {
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+
+    for (const key in db) {
+      if (Object.prototype.hasOwnProperty.call(db, key)) {
+        if (predicate(db[key], key)) {
+          return key;
+        }
+      }
+    }
+  }
+
+  /**
+   * Get a random entry from the database
+   * @returns {any} A random entry in the database
+   */
+  random() {
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+
+    const values = Object.values(db);
+    
+    return values[Math.floor(Math.random() * values.length)];
+  }
+
+  /**
+   * Get the amount of entries in the database
+   * @returns {number} The amount of entries in the database
+   */
+  count() {
+    let db = fs.readFileSync(resolve(process.cwd(), this.database), "utf-8");
+    db = JSON.parse(db);
+    
+    return Object.keys(db).length;
+  }
+
 }
 
 module.exports = VeduDB;
